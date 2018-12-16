@@ -1,0 +1,25 @@
+<h2> test page </h2>
+
+<div> please choose a color, default highlight color is gray</div>
+
+<hr>
+<div><span>{{</span>color_choose<span>}}</span> is test-page parameter</div>
+
+<hr>
+
+<div *ngIf="color_list">
+  <label *ngFor="let color_item of color_list">
+    <input type="radio" name="colors" (click)="color_choose=color_item">{{color_item}}
+  </label>
+</div>
+
+<p appMouseoverHighlight="">1 hit me : highlight=""</p>
+<p [appMouseoverHighlight]="color_choose">2 hit me : highlight="color_choose" </p>
+
+<hr>
+
+
+<p appMouseoverHighlight="" appMouseoverHighlight_color="forestgreen">3 hit me : highlight="",
+  _color=forestgreen</p>
+<p [appMouseoverHighlight]="color_choose" appMouseoverHighlight_color="darkturquoise">
+  4 hit me : highlight="color_choose", _color=darkturquoise</p>
